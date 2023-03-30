@@ -26,8 +26,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'custom_auth',
     'core',
+    'tasks'
 
 ]
 
@@ -65,8 +65,15 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'todolist',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '3306',
+    }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -111,7 +118,6 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
-AUTH_USER_MODEL = 'custom_auth.UserProfile'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
